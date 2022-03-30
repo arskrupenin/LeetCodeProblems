@@ -38,6 +38,55 @@ func isSameTree(_ p: TreeNode?, _ q: TreeNode?) -> Bool {
 	return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 }
 
+/// TODO: 102. Binary Tree Level Order Traversal
+/// https://leetcode.com/problems/binary-tree-level-order-traversal/
+func levelOrder(_ root: TreeNode?) -> [[Int]] {
+	guard let root = root else { return [] }
+	var result: [[Int]] = [[root.val]]
+	let level = [root.left?.val, root.right?.val].compactMap { $0 }
+	if !level.isEmpty { result.append(level) }
+	result.append(contentsOf: levelOrder(root.left).dropFirst())
+	result.append(contentsOf: levelOrder(root.right).dropFirst())
+	return result
+}
+
+// MARK: - Binary Search
+
+/// 153. Find Minimum in Rotated Sorted Array
+/// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+func findMin(_ nums: [Int]) -> Int {
+	if nums.isEmpty { return 0 }
+	if nums.count == 1 { return nums.first! }
+	var numz = nums
+	while numz.first! >= numz.last! {
+		let temp = numz.popLast()
+		numz.insert(temp!, at: 0)
+	}
+	return numz.first!
+}
+
+func findMin2(_ nums: [Int]) -> Int {
+	guard !nums.isEmpty else {
+		return 0
+	}
+	if (nums.count == 1) || (nums.first! < nums.last!) {
+		return nums.first!
+	}
+	var (left, right) = (0, nums.count-1)
+	while left < right {
+		if right - left == 1 { return min(nums[left], nums[right]) }
+		let mid = left + (right - left) / 2
+		if nums[left] > nums[right], nums[left] < nums[mid] {
+			left = mid
+		} else {
+			right = mid
+		}
+	}
+	return 0
+}
+
+// MARK: - ?
+
 /// 263. Ugly Number
 /// https://leetcode.com/problems/ugly-number/
 func isUgly(_ n: Int) -> Bool {
@@ -45,16 +94,10 @@ func isUgly(_ n: Int) -> Bool {
 	if n == 1 { return true }
 	var temp = n
 	while temp != 1 {
-		if temp % 2 == 0 {
-			temp = temp / 2
-		} else if temp % 3 == 0 {
-			temp = temp / 3
-		} else if temp % 5 == 0 {
-			temp = temp / 5
-		} else {
-			return false
-		}
+		if temp % 2 == 0 { temp = temp / 2 }
+		else if temp % 3 == 0 { temp = temp / 3 }
+		else if temp % 5 == 0 { temp = temp / 5 }
+		else { return false }
 	}
 	return true
 }
-
