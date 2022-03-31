@@ -55,34 +55,21 @@ func levelOrder(_ root: TreeNode?) -> [[Int]] {
 /// 153. Find Minimum in Rotated Sorted Array
 /// https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 func findMin(_ nums: [Int]) -> Int {
-	if nums.isEmpty { return 0 }
-	if nums.count == 1 { return nums.first! }
-	var numz = nums
-	while numz.first! >= numz.last! {
-		let temp = numz.popLast()
-		numz.insert(temp!, at: 0)
-	}
-	return numz.first!
-}
-
-func findMin2(_ nums: [Int]) -> Int {
-	guard !nums.isEmpty else {
-		return 0
-	}
+	guard !nums.isEmpty else { return 0 }
 	if (nums.count == 1) || (nums.first! < nums.last!) {
 		return nums.first!
 	}
-	var (left, right) = (0, nums.count-1)
-	while left < right {
-		if right - left == 1 { return min(nums[left], nums[right]) }
-		let mid = left + (right - left) / 2
-		if nums[left] > nums[right], nums[left] < nums[mid] {
-			left = mid
+	var (l, r) = (0, nums.count-1)
+	while l < r {
+		if r - l == 1 { break }
+		let m = l + (r - l) / 2
+		if nums[l] < nums[m] {
+			l = m
 		} else {
-			right = mid
+			r = m
 		}
 	}
-	return 0
+	return min(nums[l], nums[r])
 }
 
 // MARK: - ?
