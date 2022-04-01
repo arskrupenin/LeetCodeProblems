@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		AAC6332E27F31D5700FA88F7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6332D27F31D5700FA88F7 /* main.swift */; };
+		D44901C854C24077AAA4E359 /* BinaryTreeProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44909217B1F9112501F5D2B /* BinaryTreeProblems.swift */; };
+		D44903BFC1CA4EF1929FBB40 /* BinarySearchProblems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4490B3552E2CB842D0EC316 /* BinarySearchProblems.swift */; };
+		D4490A98FCD0EA1B2732DE1A /* Problems.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4490E935CD050FC4DB6FB37 /* Problems.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		AAC6332A27F31D5700FA88F7 /* LeetCodeProblems */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCodeProblems; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC6332D27F31D5700FA88F7 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		D44909217B1F9112501F5D2B /* BinaryTreeProblems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinaryTreeProblems.swift; sourceTree = "<group>"; };
+		D4490B3552E2CB842D0EC316 /* BinarySearchProblems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BinarySearchProblems.swift; sourceTree = "<group>"; };
+		D4490E935CD050FC4DB6FB37 /* Problems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Problems.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				AAC6332D27F31D5700FA88F7 /* main.swift */,
+				D44909217B1F9112501F5D2B /* BinaryTreeProblems.swift */,
+				D4490B3552E2CB842D0EC316 /* BinarySearchProblems.swift */,
+				D4490E935CD050FC4DB6FB37 /* Problems.swift */,
 			);
 			path = LeetCodeProblems;
 			sourceTree = "<group>";
@@ -121,6 +130,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC6332E27F31D5700FA88F7 /* main.swift in Sources */,
+				D44901C854C24077AAA4E359 /* BinaryTreeProblems.swift in Sources */,
+				D44903BFC1CA4EF1929FBB40 /* BinarySearchProblems.swift in Sources */,
+				D4490A98FCD0EA1B2732DE1A /* Problems.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
