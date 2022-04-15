@@ -18,3 +18,41 @@ func isUgly(_ n: Int) -> Bool {
     }
     return true
 }
+
+extension Array {
+	subscript(safe index: Int) -> Element? {
+		guard index >= 0, index < count else { return nil }
+		return self[index]
+	}
+}
+
+/// 289. Game of Life
+/// https://leetcode.com/problems/game-of-life/
+func gameOfLife(_ board: inout [[Int]]) {
+	let (n, m) = (board.count - 1, board[0].count - 1)
+	var next = board
+	for i in 0...n {
+		for j in 0...m {
+			let neighbours = [
+				board[safe: i-1]?[safe: j-1],
+				board[safe: i-1]?[j],
+				board[safe: i-1]?[safe: j+1],
+
+				board[i][safe: j-1],
+				board[i][safe: j+1],
+
+				board[safe: i+1]?[safe: j-1],
+				board[safe: i+1]?[safe: j],
+				board[safe: i+1]?[safe: j+1]
+			].compactMap { $0 }
+
+			let count = neighbours.filter({ $0 == 1 }).count
+			if board[i][j] == 1 {
+				if count < 2 || count > 3 { next[i][j] = 0 }
+			} else {
+				if count == 3 { next[i][j] = 1 }
+			}
+		}
+	}
+	board = next
+}
